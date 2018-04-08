@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'lazy_object'
+require 'subclass_must_implement'
 
 Gem::Specification.new do |spec|
   spec.name          = "subclass_must_implement"
@@ -20,5 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "simplecov-rcov-text"
+  spec.add_development_dependency "colorize"
 end
