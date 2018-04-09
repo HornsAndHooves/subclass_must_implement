@@ -1,0 +1,40 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AllFiles	coverage/index.html	32;"	a	line:32
+Bar	spec/subclass_must_implement_spec.rb	23;"	c	line:23
+BaseBar	spec/subclass_must_implement_spec.rb	17;"	c	line:17
+BaseFoo	spec/subclass_must_implement_spec.rb	5;"	c	line:5
+ClassMethods	lib/subclass_must_implement.rb	61;"	m	line:61	class:SubclassMustImplement
+Foo	spec/subclass_must_implement_spec.rb	11;"	c	line:11
+K.D	coverage/assets/0.10.2/application.js	17;"	f	line:17
+K.E	coverage/assets/0.10.2/application.js	17;"	f	line:17
+K.l	coverage/assets/0.10.2/application.js	17;"	f	line:17
+K.m	coverage/assets/0.10.2/application.js	17;"	f	line:17
+SubclassMustImplement	lib/subclass_must_implement.rb	43;"	m	line:43
+V.N	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bA	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bW	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bX	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bY	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bZ	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bi	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bj	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bk	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bl	coverage/assets/0.10.2/application.js	17;"	f	line:17
+b$.bm	coverage/assets/0.10.2/application.js	17;"	f	line:17
+bh.bg	coverage/assets/0.10.2/application.js	17;"	f	line:17
+cp.ce	coverage/assets/0.10.2/application.js	17;"	f	line:17
+cp.cf	coverage/assets/0.10.2/application.js	17;"	f	line:17
+extended	lib/subclass_must_implement.rb	51;"	F	line:51	class:SubclassMustImplement
+foo	spec/subclass_must_implement_spec.rb	12;"	f	line:12	class:Foo
+function.cr	coverage/assets/0.10.2/application.js	17;"	f	line:17
+included	lib/subclass_must_implement.rb	46;"	F	line:46	class:SubclassMustImplement
+k.function.J	coverage/assets/0.10.2/application.js	17;"	f	line:17
+k.var.e	coverage/assets/0.10.2/application.js	17;"	f	line:17
+subclass_must_implement	lib/subclass_must_implement.rb	65;"	f	line:65	class:SubclassMustImplement.ClassMethods
+version	lib/subclass_must_implement.rb	56;"	F	line:56	class:SubclassMustImplement
+version	spec/subclass_must_implement_spec.rb	24;"	f	line:24	class:Bar

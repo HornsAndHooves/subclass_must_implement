@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "simplecov-rcov-text"
   spec.add_development_dependency "colorize"
+  spec.add_development_dependency "yard"
 end
