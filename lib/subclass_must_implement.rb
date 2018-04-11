@@ -79,5 +79,5 @@ module SubclassMustImplement
 end
 
 if defined? RSpec
-  require "rspec_matchers/require_subclass_to_implement_matcher"
+  require "subclass_must_implement/rspec_matchers/require_subclass_to_implement_matcher"
 end
