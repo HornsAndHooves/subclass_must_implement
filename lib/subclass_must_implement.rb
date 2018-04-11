@@ -57,6 +57,11 @@ module SubclassMustImplement
     "0.0.1"
   end
 
+  # Creates the default error message for the given method name.
+  def self.default_error_message(method_name)
+    "`#{method_name}` must be implemented in a subclass."
+  end
+
   # The class level macros are defined here.
   module ClassMethods
 
@@ -64,11 +69,15 @@ module SubclassMustImplement
     # Pass in a custom error message if desired using the err_message named argument.
     def subclass_must_implement(*method_names, err_message: nil)
       method_names.each do |method_name|
-        err = err_message.nil? ? "`#{method_name}` must be implemented in a subclass." : "#{err_message}"
+        err = err_message.nil? ? ::SubclassMustImplement.default_error_message(method_name) : "#{err_message}"
         define_method method_name do |*_|
           raise NotImplementedError, err
         end
       end
     end
   end
+end
+
+if defined? RSpec
+  require "rspec_matchers/require_subclass_to_implement_matcher"
 end

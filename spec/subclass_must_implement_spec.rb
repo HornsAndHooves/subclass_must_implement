@@ -49,4 +49,11 @@ RSpec.describe SubclassMustImplement do
       expect(bar.version).to eq(described_class.version)
     end
   end
+
+  context "matcher" do
+    it { expect(BaseFoo).to require_subclass_to_implement(:foo) }
+    it { expect(BaseFoo.new).to require_subclass_to_implement(:bar) }
+    it { expect(BaseFoo).to_not require_subclass_to_implement(:qux) }
+    it { expect(BaseBar).to require_subclass_to_implement(:version).with_error_message("Version expected!!!")}
+  end
 end
