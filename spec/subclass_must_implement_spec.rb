@@ -30,7 +30,7 @@ RSpec.describe SubclassMustImplement do
   let(:bar) { Bar.new }
 
   context "module included" do
-    it "will raise a not implemented error if any required method is not implemented in the subclass" do
+    it "will raise a NotImplementedError if any required method is not implemented in the subclass" do
       expect { foo.bar }.to raise_error(NotImplementedError, "`bar` must be implemented in a subclass.")
       expect { foo.baz }.to raise_error(NotImplementedError, "`baz` must be implemented in a subclass.")
     end
@@ -41,7 +41,7 @@ RSpec.describe SubclassMustImplement do
   end
 
   context "module extended" do
-    it "will raise a not implemented error if any required method is not implemented in the subclass" do
+    it "will raise a NotImplementedError if any required method is not implemented in the subclass" do
       expect { bar.sub_version }.to raise_error(NotImplementedError, "Version expected!!!")
     end
 
@@ -51,9 +51,12 @@ RSpec.describe SubclassMustImplement do
   end
 
   context "matcher" do
-    it { expect(BaseFoo).to require_subclass_to_implement(:foo) }
+    it { expect(BaseFoo    ).to require_subclass_to_implement(:foo) }
     it { expect(BaseFoo.new).to require_subclass_to_implement(:bar) }
-    it { expect(BaseFoo).to_not require_subclass_to_implement(:qux) }
-    it { expect(BaseBar).to require_subclass_to_implement(:version).with_error_message("Version expected!!!")}
+    it { expect(BaseFoo).not_to require_subclass_to_implement(:qux) }
+
+    it do
+      expect(BaseBar).to require_subclass_to_implement(:version).with_error_message("Version expected!!!")
+    end
   end
 end
