@@ -1,4 +1,4 @@
-require 'rspec/expectations'
+require "rspec/expectations"
 
 RSpec::Matchers.define :require_subclass_to_implement do |method_name|
 
@@ -28,8 +28,8 @@ RSpec::Matchers.define :require_subclass_to_implement do |method_name|
   end # match do
 
   failure_message do
-    "should require subclasses to implement method `#{method_name}`,"\
-      " otherwise raise a NotImplementedError with message '#{@err_message}'"
+    "should require subclasses to implement method `#{method_name}`, " \
+    "otherwise raise a NotImplementedError with message '#{@err_message}'"
   end
 
   failure_message_when_negated do

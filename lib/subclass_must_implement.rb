@@ -42,22 +42,22 @@
 #
 module SubclassMustImplement
 
-  # Injects the `subclass_must_implement` macro
+  # Inject the `subclass_must_implement` macro.
   def self.included(base)
     base.extend ClassMethods
   end
 
-  # Injects the `subclass_must_implement` macro
+  # Inject the `subclass_must_implement` macro.
   def self.extended(base)
     base.extend ClassMethods
   end
 
-  # Returns the Gem version as a string
+  # Return the Gem version as a string.
   def self.version
     "0.0.1"
   end
 
-  # Creates the default error message for the given method name.
+  # Create the default error message for the given method name.
   def self.default_error_message(method_name)
     "`#{method_name}` must be implemented in a subclass."
   end
@@ -65,7 +65,7 @@ module SubclassMustImplement
   # The class level macros are defined here.
   module ClassMethods
 
-    # Defines a method for each method name that raises a NotImplementedError when called.
+    # Define a method for each method name that raises a NotImplementedError when called.
     # Pass in a custom error message if desired using the err_message named argument.
     def subclass_must_implement(*method_names, err_message: nil)
       method_names.each do |method_name|
