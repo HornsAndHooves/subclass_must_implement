@@ -1,7 +1,5 @@
 require 'simplecov'
-SimpleCov.start do
-  add_filter "/lib/rspec_matchers"
-end
+SimpleCov.start
 
 load "subclass_must_implement.rb"
 
