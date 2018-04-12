@@ -1,7 +1,10 @@
 # SubclassMustImplement
 
-There are circumstances when it is desirable to specify certain methods as abstract, i.e. it is the responsibility of any subclass to implement them.
-Getting a `MethodMIssing` is not helpful; an error that explicitly explains that the missing method is required by contract will save much time.
+There are circumstances when it is desirable to specify certain methods as abstract,
+i.e. it is the responsibility of any subclass to implement them.
+Getting a `MethodMIssing` is not helpful; an error that explicitly explains that the
+missing method is required by contract to fully implement the interface will save much
+time and frustration.
 
 ## Installation
 
@@ -63,6 +66,36 @@ end
 b = Bar.new
 b.bar # return :bar
 b.foo # raises a NotImplementedError with the specified error message "Version expected!!!"
+```
+
+## Using With RSpec
+
+There is a custom [RSpec](http://rspec.info/) matcher included to simplify testing.
+
+Example:
+
+```ruby
+# NOTE: depending on gem load order, you may need to manually load the matcher.
+# If so, add the following line to your `spec_helper.rb`
+require "subclass_must_implement/rspec_matcher/require_subclass_to_implement_matcher"
+
+# Given the following class:
+class BaseBar
+  extend SubclassMustImplement
+
+  subclass_must_implement :foo, :bar, err_message: "Version expected!!!"
+end
+
+# Test to ensure required functionality is specified:
+
+# Custom error messages can be specified
+it { expect(BaseBar).to require_subclass_to_implement(:version).with_error_message("Version expected!!!")}
+
+# Either the class or the instance can be passed to the matcher
+it { expect(BaseBar.new).to require_subclass_to_implement(:sub_version) }
+
+# Sometimes it makes sense to specify certain methods as not required
+it { expect(BaseBar).to_not require_subclass_to_implement(:foo) }
 ```
 
 ## Contributing

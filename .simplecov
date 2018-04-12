@@ -8,6 +8,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 
 SimpleCov.start do
   add_filter "/spec/"
+  add_filter "/lib/subclass_must_implement/rspec_matchers"
 
   # Fail the build when coverage is < 100%:
   at_exit do

@@ -42,33 +42,47 @@
 #
 module SubclassMustImplement
 
-  # Injects the `subclass_must_implement` macro
+  # Inject the `subclass_must_implement` macro.
   def self.included(base)
     base.extend ClassMethods
   end
 
-  # Injects the `subclass_must_implement` macro
+  # Inject the `subclass_must_implement` macro.
   def self.extended(base)
     base.extend ClassMethods
   end
 
-  # Returns the Gem version as a string
+  # Return the Gem version as a string.
+  # @return [String]
   def self.version
-    "0.0.1"
+    "0.0.2"
+  end
+
+  # Create the default error message for the given method name.
+  # @param method_name [String|Symbol]
+  # @return [String]
+  def self.default_error_message(method_name)
+    "`#{method_name}` must be implemented in a subclass."
   end
 
   # The class level macros are defined here.
   module ClassMethods
 
-    # Defines a method for each method name that raises a NotImplementedError when called.
+    # Define a method for each method name that raises a NotImplementedError when called.
     # Pass in a custom error message if desired using the err_message named argument.
+    # @param method_names [Enumerable<Symbol>]
+    # @param err_message [String]
     def subclass_must_implement(*method_names, err_message: nil)
       method_names.each do |method_name|
-        err = err_message.nil? ? "`#{method_name}` must be implemented in a subclass." : "#{err_message}"
+        err = err_message.nil? ? ::SubclassMustImplement.default_error_message(method_name) : "#{err_message}"
         define_method method_name do |*_|
           raise NotImplementedError, err
         end
       end
     end
   end
+end
+
+if defined? RSpec
+  require "subclass_must_implement/rspec_matchers/require_subclass_to_implement_matcher"
 end
